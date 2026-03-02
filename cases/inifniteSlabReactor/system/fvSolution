@@ -1,0 +1,111 @@
+// ************************************************************************* //
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    "(p|p_rgh)"
+    {
+        solver          GAMG;
+        smoother        DICGaussSeidel;
+        tolerance       1e-9;
+        relTol          1e-5;
+        maxIter         0;
+    }
+
+    "(pFinal|p_rghFinal)"
+    {
+        $p_rgh;
+        relTol          0;
+    }
+
+    "rho.*"
+    {
+        solver          diagonal;
+    }
+
+    "(U|R|k|epsilon|omega).*"
+    {
+        solver          PBiCGStab;
+        preconditioner  DILU;
+        tolerance       1e-05;
+        relTol          1e-5;
+        maxIter         0;
+    }
+
+    "(U|R|k|epsilon|omega).*Final"
+    {
+        $U;
+        relTol          0;
+    }
+
+    "(e|eFinal|h|hFinal)"
+    {
+        solver          PBiCGStab;
+        preconditioner  DILU;
+        tolerance       1e-07;
+        relTol          1e-5;
+        maxIter         0;
+    }
+
+    "prec.*"
+    {
+        solver          GAMG;
+        smoother        DILU;
+
+        tolerance       1e-14;
+        relTol          1e-8;
+        maxIter         100;
+    }
+
+    "flux.*"
+    {
+        solver          GAMG;
+        smoother        DIC;
+
+        tolerance       1e-14;
+        relTol          1e-8;
+        maxIter         10;
+    }
+}
+
+PIMPLE
+{
+    pRefCell 0;
+    pRefValue 1e5;
+    momentumPredictor false;
+    faceMomentum      false;
+
+    nOuterCorrectors 1;
+    nCorrectors     0;
+    nNonOrthogonalCorrectors 0;
+
+    dragCorrection no;
+}
+
+NPIMPLE
+{
+    nOuterCorrectors 1;
+}
+
+relaxationFactors
+{
+    fields
+    {
+
+    }
+    equations
+    {
+        "flux.*"        1;
+        "prec.*"        1;
+    }
+}
+
+
+// ************************************************************************* //

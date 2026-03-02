@@ -1,0 +1,26 @@
+// ************************************************************************* //
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    constant;
+    object      decayHeatConstants;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+DHPGroups   3;
+
+Sct         0.85;
+Sc          2e8;
+
+lambda0     0.1973;
+lambda1     0.0168;
+lambda2     3.58e-4;
+
+beta0       0.0;
+beta1       0.0;
+beta2       0.0;
+
+// ************************************************************************* //

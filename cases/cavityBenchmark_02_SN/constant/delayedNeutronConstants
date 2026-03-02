@@ -1,0 +1,36 @@
+// ************************************************************************* //
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    constant;
+    object      delayedNeutronConstants;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+DNPGroups   8;
+
+Sct         0.85;
+Sc          2e8;
+
+lambda0     1.24667E-02;
+lambda1     2.82917E-02;
+lambda2     4.25244E-02;
+lambda3     1.33042E-01;
+lambda4     2.92467E-01;
+lambda5     6.66488E-01;
+lambda6     1.63478E+00;
+lambda7     3.55460E+00;
+
+beta0       2.33102E-04;
+beta1       1.03262E-03;
+beta2       6.81878E-04;
+beta3       1.37726E-03;
+beta4       2.14493E-03;
+beta5       6.40917E-04;
+beta6       6.05805E-04;
+beta7       1.66016E-04;
+
+// ************************************************************************* //

@@ -1,0 +1,29 @@
+// ************************************************************************* //
+FoamFile
+{
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      chiPrompt1;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    empties
+    {
+        type            empty;
+    }
+
+    ".*"
+    {
+        type            zeroGradient;
+    }
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,127 @@
+// ************************************************************************* //
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      neutronFlightDirectionsDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+nDirections        48;
+
+direction0         (0.9261808 0.2666355 0.2666355);
+direction1         (0.6815076 0.2666355 0.6815076);
+direction2         (0.2666355 0.2666355 0.9261808);
+direction3         (0.6815076 0.6815076 0.2666355);
+direction4         (0.2666355 0.6815076 0.6815076);
+direction5         (0.2666355 0.9261808 0.2666355);
+
+direction6         (0.9261808 -0.2666355 0.2666355);
+direction7         (0.6815076 -0.2666355 0.6815076);
+direction8         (0.2666355 -0.2666355 0.9261808);
+direction9         (0.6815076 -0.6815076 0.2666355);
+direction10        (0.2666355 -0.6815076 0.6815076);
+direction11        (0.2666355 -0.9261808 0.2666355);
+
+direction12        (-0.9261808 -0.2666355 0.2666355);
+direction13        (-0.6815076 -0.2666355 0.6815076);
+direction14        (-0.2666355 -0.2666355 0.9261808);
+direction15        (-0.6815076 -0.6815076 0.2666355);
+direction16        (-0.2666355 -0.6815076 0.6815076);
+direction17        (-0.2666355 -0.9261808 0.2666355);
+
+direction18        (-0.9261808 0.2666355 0.2666355);
+direction19        (-0.6815076 0.2666355 0.6815076);
+direction20        (-0.2666355 0.2666355 0.9261808);
+direction21        (-0.6815076 0.6815076 0.2666355);
+direction22        (-0.2666355 0.6815076 0.6815076);
+direction23        (-0.2666355 0.9261808 0.2666355);
+
+direction24        (0.9261808 0.2666355 -0.2666355);
+direction25        (0.6815076 0.2666355 -0.6815076);
+direction26        (0.2666355 0.2666355 -0.9261808);
+direction27        (0.6815076 0.6815076 -0.2666355);
+direction28        (0.2666355 0.6815076 -0.6815076);
+direction29        (0.2666355 0.9261808 -0.2666355);
+
+direction30        (0.9261808 -0.2666355 -0.2666355);
+direction31        (0.6815076 -0.2666355 -0.6815076);
+direction32        (0.2666355 -0.2666355 -0.9261808);
+direction33        (0.6815076 -0.6815076 -0.2666355);
+direction34        (0.2666355 -0.6815076 -0.6815076);
+direction35        (0.2666355 -0.9261808 -0.2666355);
+
+direction36        (-0.9261808 -0.2666355 -0.2666355);
+direction37        (-0.6815076 -0.2666355 -0.6815076);
+direction38        (-0.2666355 -0.2666355 -0.9261808);
+direction39        (-0.6815076 -0.6815076 -0.2666355);
+direction40        (-0.2666355 -0.6815076 -0.6815076);
+direction41        (-0.2666355 -0.9261808 -0.2666355);
+
+direction42        (-0.9261808 0.2666355 -0.2666355);
+direction43        (-0.6815076 0.2666355 -0.6815076);
+direction44        (-0.2666355 0.2666355 -0.9261808);
+direction45        (-0.6815076 0.6815076 -0.2666355);
+direction46        (-0.2666355 0.6815076 -0.6815076);
+direction47        (-0.2666355 0.9261808 -0.2666355);
+
+
+directionWeight0   0.1761263;
+directionWeight1   0.1572071;
+directionWeight2   0.1761263;
+directionWeight3   0.1572071;
+directionWeight4   0.1572071;
+directionWeight5   0.1761263;
+
+directionWeight6   0.1761263;
+directionWeight7   0.1572071;
+directionWeight8   0.1761263;
+directionWeight9   0.1572071;
+directionWeight10  0.1572071;
+directionWeight11  0.1761263;
+
+directionWeight12  0.1761263;
+directionWeight13  0.1572071;
+directionWeight14  0.1761263;
+directionWeight15  0.1572071;
+directionWeight16  0.1572071;
+directionWeight17  0.1761263;
+
+directionWeight18  0.1761263;
+directionWeight19  0.1572071;
+directionWeight20  0.1761263;
+directionWeight21  0.1572071;
+directionWeight22  0.1572071;
+directionWeight23  0.1761263;
+
+directionWeight24  0.1761263;
+directionWeight25  0.1572071;
+directionWeight26  0.1761263;
+directionWeight27  0.1572071;
+directionWeight28  0.1572071;
+directionWeight29  0.1761263;
+
+directionWeight30  0.1761263;
+directionWeight31  0.1572071;
+directionWeight32  0.1761263;
+directionWeight33  0.1572071;
+directionWeight34  0.1572071;
+directionWeight35  0.1761263;
+
+directionWeight36  0.1761263;
+directionWeight37  0.1572071;
+directionWeight38  0.1761263;
+directionWeight39  0.1572071;
+directionWeight40  0.1572071;
+directionWeight41  0.1761263;
+
+directionWeight42  0.1761263;
+directionWeight43  0.1572071;
+directionWeight44  0.1761263;
+directionWeight45  0.1572071;
+directionWeight46  0.1572071;
+directionWeight47  0.1761263;
+
+// ************************************************************************* //

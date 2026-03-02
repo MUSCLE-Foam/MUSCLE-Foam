@@ -1,0 +1,9 @@
+empties
+{
+    type            empty;
+}
+
+".*"
+{
+    type    zeroGradient;
+}

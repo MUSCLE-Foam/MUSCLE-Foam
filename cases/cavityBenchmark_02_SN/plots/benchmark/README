@@ -1,0 +1,6 @@
+* Here, you can find all the files reporting the results obtained by each partner while performing the CNRS benchmark.
+This folder is meant to complete the manuscript 
+Tiberga M. et al., "Results from a multi-physics numerical benchmark for codes dedicated to molten salt fast reactors", Annals of Nuclear Energy.
+
+* In each subfolder, you can find the files with the profiles along the relevant centerline for all the observables in that step.
+

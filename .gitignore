@@ -1,0 +1,18 @@
+# Dependency files
+*.dep
+
+# Build folders
+linux*Clang*/
+linux*Gcc*/
+linux*Icc*/
+linuxming*/
+SiCortex*Gcc*/
+solaris*Gcc*/
+SunOS*Gcc*/
+platforms/
+
+# Symbolic link dirs
+lnInclude
+
+#OSX
+.DS_Store

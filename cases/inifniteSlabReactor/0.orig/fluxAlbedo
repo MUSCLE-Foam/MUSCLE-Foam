@@ -1,0 +1,35 @@
+// ************************************************************************** //
+FoamFile
+{
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      fluxAlbedo;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 -2 -1 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    empties
+    {
+        type            empty;
+    }
+
+    left
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+
+    right
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+}
+
+// ************************************************************************** //

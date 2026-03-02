@@ -1,0 +1,32 @@
+// ************************************************************************* //
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      neutronFlightDirectionsDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+nDirections       8;
+
+direction0    (0.5773502692 0.5773502692 0.5773502692);
+direction1    (-0.5773502692 0.5773502692 0.5773502692);
+direction2    (-0.5773502692 -0.5773502692 0.5773502692);
+direction3    (-0.5773502692 -0.5773502692 -0.5773502692);
+direction4    (0.5773502692 -0.5773502692 0.5773502692);
+direction5    (0.5773502692 -0.5773502692 -0.5773502692);
+direction6    (0.5773502692 0.5773502692 -0.5773502692);
+direction7    (-0.5773502692 0.5773502692 -0.5773502692);
+
+directionWeight0    1;
+directionWeight1    1;
+directionWeight2    1;
+directionWeight3    1;
+directionWeight4    1;
+directionWeight5    1;
+directionWeight6    1;
+directionWeight7    1;
+
+// ************************************************************************* //

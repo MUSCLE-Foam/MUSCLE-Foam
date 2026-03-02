@@ -1,0 +1,6 @@
+#!/bin/bash
+
+wclean applications/modules/neutronics
+wclean src/fvPatchFields
+wclean src/fvModels
+wclean applications/solvers/muscleFoamRun

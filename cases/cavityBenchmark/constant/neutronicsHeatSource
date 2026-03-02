@@ -1,0 +1,19 @@
+//************************************************************************* //
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      fvModels;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+neutronicsHeatSource
+{
+    type            neutronicsHeatSource;
+    gamma           VARGAMMA;
+    Tref            VARTREF;
+    cellZone        all;
+}
+
+//************************************************************************* //

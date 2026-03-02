@@ -1,0 +1,151 @@
+// ************************************************************************* //
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// OpenFOAM controlDict
+
+application     foamRun;
+
+solver          fluid;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         1000;
+
+deltaT          1;
+
+writeControl    runTime;
+
+writeInterval   200;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  10;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+adjustTimeStep  no;
+
+maxCo           0.3;
+
+maxDeltaT       1;
+
+
+// MUSCLE-Foam controlDict
+
+neutronicsSolver SN;
+
+scatteringOrders 0;
+
+externalCycles  1;
+
+energyGroups    1;
+
+decayHeat       false;
+
+criticalityCalculationActive false;
+
+criticalityInactive 10;
+
+keff            1.0;
+
+nominalPower    1;
+
+
+// Sampling functions
+
+functions
+{
+    horizontal
+    {
+        type            sets;
+        libs            ("libsampling.so");
+        writeControl    writeTime;
+        interpolationScheme cellPoint;
+        setFormat csv;
+        name horizontal;
+        sets
+        (
+          horizontal
+          {
+            type lineCell;
+            axis x;
+            start (0 0.005 0.005);
+            end (0.5 0.005 0.005);
+          }
+        );
+        fields
+        (
+            totalFlux0
+            flux0_0
+            flux0_1
+            flux0_2
+            flux0_3
+            flux0_4
+            flux0_5
+            flux0_6
+            flux0_7
+            flux0_8
+            flux0_9
+            flux0_10
+            flux0_11
+            flux0_12
+            flux0_13
+            flux0_14
+            flux0_15
+            flux0_16
+            flux0_17
+            flux0_18
+            flux0_19
+            flux0_20
+            flux0_21
+            flux0_22
+            flux0_23
+            flux0_24
+            flux0_25
+            flux0_26
+            flux0_27
+            flux0_28
+            flux0_29
+            flux0_30
+            flux0_31
+            flux0_32
+            flux0_33
+            flux0_34
+            flux0_35
+            flux0_36
+            flux0_37
+            flux0_38
+            flux0_39
+            flux0_40
+            flux0_41
+            flux0_42
+            flux0_43
+            flux0_44
+            flux0_45
+            flux0_46
+            flux0_47
+        );
+    }
+}
+
+
+// ************************************************************************* //

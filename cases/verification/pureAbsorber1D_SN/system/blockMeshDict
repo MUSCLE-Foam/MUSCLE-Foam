@@ -1,0 +1,59 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+
+convertToMeters 0.01;  // Units: cm
+
+vertices
+(
+    (0 0 0)
+    (50 0 0)
+    (50 1 0)
+    (0 1 0)
+    (0 0 1)
+    (50 0 1)
+    (50 1 1)
+    (0 1 1)
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (200 1 1) simpleGrading (4 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+    left
+    {
+        type patch;
+        faces ((0 3 7 4));
+    }
+
+    right
+    {
+        type patch;
+        faces ((1 2 6 5));
+    }
+
+    empties
+    {
+        type empty;
+        faces
+        (
+            (0 1 5 4)
+            (4 5 6 7)
+            (2 3 7 6)
+            (0 1 2 3)
+        );
+    }
+);
+
+mergePatchPairs ();

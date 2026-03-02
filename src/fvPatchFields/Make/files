@@ -1,0 +1,3 @@
+albedoFvPatchField/albedoFvPatchField.C
+
+LIB = $(FOAM_USER_LIBBIN)/libneutronicsFvPatchFields

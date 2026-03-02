@@ -1,0 +1,18 @@
+neutronicsSolvers/neutronicsSolver/neutronicsSolver.C
+neutronicsSolvers/neutronicsSolver/neutronicsSolverNew.C
+
+neutronicsSolvers/diffusionSolver/diffusionSolver.C
+neutronicsSolvers/diffusionSolver/diffusionSolverInit.C
+
+neutronicsSolvers/SP3Solver/SP3Solver.C
+neutronicsSolvers/SP3Solver/SP3SolverInit.C
+
+neutronicsSolvers/SNSolver/SNSolver.C
+neutronicsSolvers/SNSolver/SNSolverInit.C
+
+fluidProperties/fluidProperties.C
+
+DHPTransport/DHPTransport.C
+DNPTransport/DNPTransport.C
+
+LIB = $(FOAM_USER_LIBBIN)/libneutronics

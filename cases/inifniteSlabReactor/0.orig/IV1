@@ -1,0 +1,29 @@
+// ************************************************************************* //
+FoamFile
+{
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      IV1;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 -1 1 0 0 0 0];
+
+internalField   uniform 3.333e-4;
+
+boundaryField
+{
+    empties
+    {
+        type            empty;
+    }
+
+    ".*"
+    {
+        type            zeroGradient;
+    }
+}
+
+
+// ************************************************************************* //

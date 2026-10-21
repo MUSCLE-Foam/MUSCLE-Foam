@@ -24,7 +24,7 @@ rm -f *.msh
 rm -rf processor*
 rm -fr __pycache__
 rm -fr plots/__pycache__
-rm -fr plots/*.png
+rm -f plots/*.png
 rm -f slurm*
 rm -f yplus*
 rm -f wallShearStress

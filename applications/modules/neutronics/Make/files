@@ -10,6 +10,8 @@ neutronicsSolvers/SP3Solver/SP3SolverInit.C
 neutronicsSolvers/SNSolver/SNSolver.C
 neutronicsSolvers/SNSolver/SNSolverInit.C
 
+neutronicsSolvers/PKESolver/PKESolver.C
+
 fluidProperties/fluidProperties.C
 
 DHPTransport/DHPTransport.C

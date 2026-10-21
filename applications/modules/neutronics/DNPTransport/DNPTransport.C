@@ -63,7 +63,11 @@ Foam::DNPTransport::DNPTransport(neutronicsSolver& solver, IOdictionary& dict)
     betaTotal_(0),
 
     DNS_(neutronicsSolver_.energyGroups()),
-    chi_(neutronicsSolver_.energyGroups())
+    chi_(neutronicsSolver_.energyGroups()),
+
+    DNPGroups(DNPGroups_),
+    lambda(lambda_),
+    beta(beta_)
 {
     forAll(chi_, energyGroup)
     {

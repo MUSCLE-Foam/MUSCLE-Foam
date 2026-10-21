@@ -31,6 +31,7 @@ For an overview of the available fluid solvers, the [OpenFOAM user guide](https:
  - `diffusion`
  - `SP3`
  - `SN`
+ - `PKE`
 
 In order to couple the neutronics solver back to the fluid solver, the `neutronicsHeatSource` fvModel should be used.
 

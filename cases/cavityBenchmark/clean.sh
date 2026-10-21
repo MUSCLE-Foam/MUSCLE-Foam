@@ -6,6 +6,7 @@ source $FOAM_SRC/../bin/tools/CleanFunctions
 cleanCase
 rm -rf 0
 rm -rf postProcessing/*
+rm -f plots/*.png
 rm -f *.pdf
 rm -f *.png
 rm -f *.txt

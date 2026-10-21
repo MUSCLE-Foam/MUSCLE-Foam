@@ -105,6 +105,14 @@ public:
 
     // Public Data
 
+        //- Number of delayed neutron precursor groups
+        const label& DNPGroups;
+
+        //- Delayed neutron precursor constants
+        List<dimensionedScalar>& lambda;
+
+        //- Delayed neutron precursor fractions
+        scalarList& beta;
 
     //- Runtime type information
     TypeName("DNPTransport");

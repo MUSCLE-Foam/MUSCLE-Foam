@@ -25,24 +25,15 @@ Usage
       - \par -outputFile <Serpent output file>
         Serpent output file name
 
-      - \par -neutronicsSolver <name>
-        Neutronics solver name
-
-      - \par -noAlpha
-        Do not generate thermal feedback coefficient files
-
     Example usage:
       - To copy cross-section data for the diffusion solver with 6 energy
         groups, run the following from the command-line in your case directory:
         \verbatim
-            importSerpentCrossSections -energyGroups 6 -outputFile case_res.m \
-                -neutronicsSolver SP3
+            importSerpentCrossSections -energyGroups 6 -outputFile case_res.m
         \endverbatim
 
       - To run the utility based on the entries in controlDict:
         \verbatim
-            neutronicsSolver diffusion;
-
             energyGroups 7;
         \endverbatim
         then execute \c generateCrossSectionFiles -outputFile case_res.m
@@ -79,13 +70,6 @@ int main(int argc, char *argv[])
         "Serpent output file name"
     );
 
-    argList::addOption
-    (
-        "neutronicsSolver",
-        "name",
-        "Neutronics solver name"
-    );
-
     #include "setRootCase.H"
     #include "createTime.H"
 
@@ -94,20 +78,9 @@ int main(int argc, char *argv[])
         runTime.controlDict().lookupOrDefault("energyGroups", 0)
     );
 
-    // Read the neutronicsSolverName from the optional solver entry in
-    // controlDict
-    word neutronicsSolverName
-    (
-        runTime.controlDict().lookupOrDefault("neutronicsSolver", word::null)
-    );
-
     // Optionally reset the energyGroups from the -energyGroups command-line
     // argument
     args.optionReadIfPresent("energyGroups", energyGroups);
-
-    // Optionally reset the neutronicsSolver name from the -solver
-    // command-line argument
-    args.optionReadIfPresent("neutronicsSolver", neutronicsSolverName);
 
     // Serpent output file
     fileName outputFile = args.optionRead<fileName>("outputFile");

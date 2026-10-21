@@ -17,7 +17,7 @@ fs.prep(plt, figSize)
 
 # Simulation data
 
-endTime = "10000" # Change if necessary
+endTime = "5000" # Change if necessary
 
 csv_flux = read_csv("../postProcessing/horizontal/"+endTime+"/horizontal.csv")
 

@@ -223,7 +223,7 @@ public:
         void criticalityCalculation();
 
         //- Update the power density
-        void updatePower();
+        virtual void updatePower();
 
         //- Return number of energy groups
         inline label energyGroups() { return energyGroups_; }

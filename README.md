@@ -1,6 +1,6 @@
 # MUSCLE-Foam
 
-MUSCLE-Foam is a modular neutronics solver for OpenFOAM-13. It allows for coupled simulations of standard OpenFOAM solvers with the addition of neutronics. MUSCLE-Foam reads several fields from the fluid solver (density, face fluxes, viscosity, etc.) and returns a heat source comprised of a prompt neutron heat source and a decay heat source. MUSCLE-Foam differentiates itself from other OpenFOAM-based multiphysics solvers by the fact that it exploits OpenFOAM's modular solver approach (first introduced in OpenFOAM-11, Foundation version) to offer the capability of combining any of the implemented neutronics solvers coupled with any *native* OpenFOAM fluid solver.
+MUSCLE-Foam is a modular neutronics solver for OpenFOAM-14. It allows for coupled simulations of standard OpenFOAM solvers with the addition of neutronics. MUSCLE-Foam reads several fields from the fluid solver (density, face fluxes, viscosity, etc.) and returns a heat source comprised of a prompt neutron heat source and a decay heat source. MUSCLE-Foam differentiates itself from other OpenFOAM-based multiphysics solvers by the fact that it exploits OpenFOAM's modular solver approach (first introduced in OpenFOAM-11, Foundation version) to offer the capability of combining any of the implemented neutronics solvers coupled with any *native* OpenFOAM fluid solver.
 
 ## Authors
 
@@ -14,11 +14,11 @@ MUSCLE-Foam is distributed under the European Dual Use Codification EU DuC=0D001
 
 ## Prerequisites
 
-MUSCLE-Foam requires OpenFOAM-13 (Foundation version).
+MUSCLE-Foam requires OpenFOAM-14 (Foundation version).
 
 ## Usage
 
-Once OpenFOAM-13 is compiled, MUSCLE-Foam can be compiled with
+Once OpenFOAM-14 is compiled, MUSCLE-Foam can be compiled with
 
     ./Allwmake
 
@@ -26,7 +26,7 @@ To use MUSCLE-Foam, the `muscleFoamRun` command is used. Similar to the standard
 
     muscleFoamRun -solver <fluid solver> -neutronicsSolver <neutronics solver>
 
-For an overview of the available fluid solvers, the [OpenFOAM user guide](https://doc.cfd.direct/openfoam/user-guide-v13/solvers-modules) may be consulted. The following neutronics solver modules are available in MUSCLE-Foam:
+For an overview of the available fluid solvers, the [OpenFOAM user guide](https://doc.cfd.direct/openfoam/user-guide-v14/solvers-modules) may be consulted. The following neutronics solver modules are available in MUSCLE-Foam:
 
  - `diffusion`
  - `SP3`

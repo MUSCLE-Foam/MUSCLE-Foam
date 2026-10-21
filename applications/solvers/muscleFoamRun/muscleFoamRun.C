@@ -18,7 +18,7 @@ Application
     muscleFoamRun
 
 Description
-    MUSCLE-Foam is a modular neutronics solver for OpenFOAM-13. It allows for
+    MUSCLE-Foam is a modular neutronics solver for OpenFOAM-14. It allows for
     coupled simulations of standard OpenFOAM solvers with the addition of
     neutronics.
 

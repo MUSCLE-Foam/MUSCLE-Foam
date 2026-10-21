@@ -174,7 +174,7 @@ Foam::neutronicsSolver::neutronicsSolver(fvMesh& mesh)
     DNP_(),
     decayHeat_(mesh.time().controlDict().lookupOrDefault("decayHeat", false)),
     DHP_(),
-    energyGroups_(mesh.time().controlDict().lookup<label>("energyGroups", 6)),
+    energyGroups_(mesh.time().controlDict().lookup<label>("energyGroups")),
     k_(mesh.time().controlDict().lookupOrDefault("keff", 1.0)),
     criticalityInactive_
     (

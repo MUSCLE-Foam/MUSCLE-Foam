@@ -35,6 +35,7 @@ SourceFiles
 #define DHPTransport_H
 
 #include "fvMesh.H"
+#include "volFields.H"
 #include "fvModels.H"
 #include "fvConstraints.H"
 #include "IOdictionary.H"

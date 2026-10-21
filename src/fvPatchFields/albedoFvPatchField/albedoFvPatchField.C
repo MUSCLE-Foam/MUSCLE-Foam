@@ -5,7 +5,6 @@
 #include "dictionary.H"
 #include "fvMesh.H"
 #include "fieldMapper.H"
-#include "volMesh.H"
 #include "addToRunTimeSelectionTable.H"
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
@@ -13,7 +12,7 @@
 Foam::albedoFvPatchField::albedoFvPatchField
 (
     const fvPatch& p,
-    const DimensionedField<scalar,volMesh>& iF
+    const DimensionedField<scalar,fvMesh>& iF
 )
 :
     fvPatchField<scalar>(p, iF),
@@ -39,7 +38,7 @@ Foam::albedoFvPatchField::albedoFvPatchField
 Foam::albedoFvPatchField::albedoFvPatchField
 (
     const fvPatch& p,
-    const DimensionedField<scalar,volMesh>& iF,
+    const DimensionedField<scalar,fvMesh>& iF,
     const dictionary& dict,
     const bool valueRequired
 )
@@ -71,7 +70,7 @@ Foam::albedoFvPatchField::albedoFvPatchField
 (
     const albedoFvPatchField& ptf,
     const fvPatch& p,
-    const DimensionedField<scalar,volMesh>& iF,
+    const DimensionedField<scalar,fvMesh>& iF,
     const fieldMapper& mapper,
     const bool mappingRequired
 )
@@ -87,7 +86,7 @@ Foam::albedoFvPatchField::albedoFvPatchField
 Foam::albedoFvPatchField::albedoFvPatchField
 (
     const albedoFvPatchField& ptf,
-    const DimensionedField<scalar,volMesh>& iF
+    const DimensionedField<scalar,fvMesh>& iF
 )
 :
     fvPatchField<scalar>(ptf, iF),

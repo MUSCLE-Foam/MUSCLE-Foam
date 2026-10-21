@@ -119,14 +119,14 @@ public:
         albedoFvPatchField
         (
             const fvPatch&,
-            const DimensionedField<scalar, volMesh>&
+            const DimensionedField<scalar, fvMesh>&
         );
 
         //- Construct from patch, internal field and dictionary
         albedoFvPatchField
         (
             const fvPatch&,
-            const DimensionedField<scalar, volMesh>&,
+            const DimensionedField<scalar, fvMesh>&,
             const dictionary&,
             const bool valueRequired=true
         );
@@ -137,7 +137,7 @@ public:
         (
             const albedoFvPatchField&,
             const fvPatch&,
-            const DimensionedField<scalar, volMesh>&,
+            const DimensionedField<scalar, fvMesh>&,
             const fieldMapper&,
             const bool mappingRequired=true
         );
@@ -149,13 +149,13 @@ public:
         albedoFvPatchField
         (
             const albedoFvPatchField&,
-            const DimensionedField<scalar, volMesh>&
+            const DimensionedField<scalar, fvMesh>&
         );
 
         //- Construct and return a clone setting internal field reference
         virtual tmp<fvPatchField<scalar>> clone
         (
-            const DimensionedField<scalar, volMesh>& iF
+            const DimensionedField<scalar, fvMesh>& iF
         ) const
         {
             return tmp<fvPatchField<scalar>>

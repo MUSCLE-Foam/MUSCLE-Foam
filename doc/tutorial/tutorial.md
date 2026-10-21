@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this tutorial, new users of MUSCLE-Foam will be introduced to the folder structure, case setup and available features of MUSCLE-Foam. It is assumed that users are already familiar with the usage of standard OpenFOAM. If not, it is recommended to first go through [OpenFOAM's user guide](https://doc.cfd.direct/openfoam/user-guide-v12/index) to learn the basics.
+In this tutorial, new users of MUSCLE-Foam will be introduced to the folder structure, case setup and available features of MUSCLE-Foam. It is assumed that users are already familiar with the usage of standard OpenFOAM. If not, it is recommended to first go through [OpenFOAM's user guide](https://doc.cfd.direct/openfoam/user-guide-v14/) to learn the basics.
 
 We use the lid-driven cavity benchmark of Tiberga et al. (2020, *Ann. Nucl. Energy* 140 : 107428) as a tutorial. In this benchmark, a 2D square cavity is used to emulate a simple molten salt reactor. Motion of the liquid fuel may be induced by the moving top lid, as well as by the buoyancy of the fuel. A large dataset of reference results from different multiphysics codes are available for code verification.
 

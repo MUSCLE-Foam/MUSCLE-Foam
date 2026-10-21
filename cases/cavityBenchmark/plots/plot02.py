@@ -7,7 +7,7 @@ from pandas import *
 
 # Benchmark results
 
-csv_benchmark_NFD = read_csv("benchmark/Step02/fiss_dens_AA", skiprows=1, delim_whitespace=True, names=["x", "CNRS", "CNRS2", "PoliMi", "PSI", "TUD", "TUD2"])
+csv_benchmark_NFD = read_csv("benchmark/Step02/fiss_dens_AA", skiprows=1, sep=r"\s+", names=["x", "CNRS", "CNRS2", "PoliMi", "PSI", "TUD", "TUD2"])
 
 benchmark_x = csv_benchmark_NFD['x'].tolist()
 

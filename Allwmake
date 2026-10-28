@@ -1,10 +1,10 @@
 #!/bin/bash
 
-wmake applications/modules/neutronics
-wmake src/fvPatchFields
-wmake src/fvModels
+wmake libso src/fvPatchFields
+wmake libso src/fvModels
+
+wmake libso applications/modules/neutronics
 
 wmake applications/solvers/muscleFoamRun
-
 wmake applications/utilities/generateCrossSectionFiles
 wmake applications/utilities/importSerpentCrossSections

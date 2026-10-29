@@ -29,8 +29,6 @@ void Foam::SP3Solver::updateCrossSections()
         forAll(S_[ei], ej)
         {
             S_[ei][ej] = (S0_[ei][ej] + alphaS_[ei][ej] * logT) * K;
-            S2_[ei][ej] = (S20_[ei][ej] + alphaS2_[ei][ej] * logT) * K;
-            S3_[ei][ej] = (S30_[ei][ej] + alphaS3_[ei][ej] * logT) * K;
         }
     }
 }
@@ -129,14 +127,6 @@ Foam::SP3Solver::SP3Solver(fvMesh& mesh)
     S_(energyGroups_),
     S0_(energyGroups_),
     alphaS_(energyGroups_),
-
-    S2_(energyGroups_),
-    S20_(energyGroups_),
-    alphaS2_(energyGroups_),
-
-    S3_(energyGroups_),
-    S30_(energyGroups_),
-    alphaS3_(energyGroups_),
 
     F_(energyGroups_),
 

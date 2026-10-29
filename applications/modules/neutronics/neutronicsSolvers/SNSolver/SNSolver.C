@@ -174,8 +174,7 @@ void Foam::SNSolver::solve()
         {
             phif_ = directions_[di] & mesh.Sf();
 
-            neutronSource_[ei][di] =
-                (1.0/8.0) * DNP_->DNS()[ei] * directionWeights_[di];
+            neutronSource_[ei][di] = DNP_->DNS()[ei];
 
             forAll(flux_, ej)
             {

@@ -66,31 +66,21 @@ solvers
 
     "prec.*"
     {
-        solver          GAMG;
-        smoother        DILU;
+        solver          PBiCGStab;
+        preconditioner  DILU;
 
-        tolerance       1e-14;
-        relTol          1e-8;
+        tolerance       1e-8;
+        relTol          1e-5;
         maxIter         100;
     }
 
-    "(prec.*)Final"
+    "(flux).*"
     {
-        solver          GAMG;
-        smoother        DILU;
+        solver          PBiCGStab;
+        preconditioner  DILU;
 
-        tolerance       1e-14;
-        relTol          1e-8;
-        maxIter         100;
-    }
-
-    "flux.*"
-    {
-        solver          GAMG;
-        smoother        DILUGaussSeidel;
-
-        tolerance       1e-14;
-        relTol          1e-8;
+        tolerance       1e-8;
+        relTol          1e-5;
         maxIter         100;
     }
 }
@@ -117,8 +107,8 @@ relaxationFactors
     }
     equations
     {
-        "flux.*"        0.3;
-        "prec.*"        0.3;
+        "flux.*"        1.0;
+        "prec.*"        1.0;
     }
 }
 

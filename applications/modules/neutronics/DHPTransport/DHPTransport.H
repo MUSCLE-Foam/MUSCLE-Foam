@@ -90,6 +90,9 @@ private:
         //- Decay heat precursor fractions
         scalarList beta_;
 
+        //- Total decay heat fraction
+        scalar betaTotal_;
+
 
     // Private Member Functions
 
@@ -129,9 +132,11 @@ public:
         //- Update decay heat source
         void updateSourceTerms();
 
-
         //- Return decay heat source
         inline volScalarField& decayHeatSource() { return decayHeatSource_; }
+
+        //- Return total decay heat fraction
+        inline scalar betaTotal() const { return betaTotal_; }
 
 
     // Member Operators

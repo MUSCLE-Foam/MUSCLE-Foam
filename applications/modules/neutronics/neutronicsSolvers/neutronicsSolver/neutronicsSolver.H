@@ -237,6 +237,12 @@ public:
         //- Reference to power source
         inline const volScalarField& powerSource() { return powerSource_; }
 
+        //- Fraction of the fission power deposited promptly
+        inline scalar promptHeatFraction() const
+        {
+            return DHP_.valid() ? 1.0 - DHP_->betaTotal() : 1.0;
+        }
+
 
     // Member Operators
 

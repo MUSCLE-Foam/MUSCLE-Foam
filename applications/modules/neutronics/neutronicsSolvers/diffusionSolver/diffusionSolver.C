@@ -61,7 +61,7 @@ void Foam::diffusionSolver::updateSourceTerms()
         }
     }
 
-    promptHeatSource_ = (1.0 - DNP_->betaTotal()) * powerSource_;
+    promptHeatSource_ = promptHeatFraction() * powerSource_;
 
     DNP_->updateSourceTerms();
 }

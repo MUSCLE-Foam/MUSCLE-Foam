@@ -53,7 +53,7 @@ void Foam::SNSolver::updateSourceTerms()
         powerSource_ += SP_[ei] * totalFlux_[ei];
     }
 
-    promptHeatSource_ = (1.0 - DNP_->betaTotal()) * powerSource_;
+    promptHeatSource_ = promptHeatFraction() * powerSource_;
 
     DNP_->updateSourceTerms();
 }

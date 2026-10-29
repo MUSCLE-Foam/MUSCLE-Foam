@@ -36,6 +36,8 @@ void Foam::DHPTransport::readDecayHeatConstants(IOdictionary& dict)
         lambda_[d].value() = readScalar(dict.lookup("lambda"+Foam::name(d)));
 
         beta_[d] = readScalar(dict.lookup("beta"+Foam::name(d)));
+
+        betaTotal_ += beta_[d];
     }
 }
 
@@ -68,7 +70,8 @@ Foam::DHPTransport::DHPTransport(neutronicsSolver& solver, IOdictionary& dict)
     ),
     dec_(DHPGroups_),
     lambda_(DHPGroups_),
-    beta_(DHPGroups_)
+    beta_(DHPGroups_),
+    betaTotal_(0)
 {
     readDecayHeatConstants(dict);
 }

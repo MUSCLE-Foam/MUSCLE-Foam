@@ -11,7 +11,7 @@
 | fluxAlbedo      | Albedo flux |
 | FN\<n>_0        | Fission cross-section times neutrons per fission for energy group \<n> |
 | IV\<n>          | Inverse neutron velocity for energy group \<n> |
-| M\<n>_0         | Combined fission, capture and scattering cross-section for energy group \<n> |
+| M\<n>_0         | Removal cross-section (fission, capture and out-scattering) for energy group \<n> |
 | prec\<p>        | Delayed neutron precursor group \<p> concentration |
 | rhoXS           | Cross-section reference density |
 | S\<m>\<n>_0     | Scattering cross-section from group \<m> to group \<n> |

@@ -24,7 +24,7 @@ case $CASE in
         sed -i 's/VARVEL/0.5/g' 0/U
         cat system/fvSolution.orig > system/fvSolution
         sed -i 's/VAROUTERCORR/1/g' system/fvSolution
-        sed -i 's/VARUMAXITER/1000/g' system/fvSolution
+        sed -i 's/VARUMAXITER/100/g' system/fvSolution
         sed -i 's/VARHMAXITER/0/g' system/fvSolution
         sed -i 's/VARNOUTERCORR/0/g' system/fvSolution
         ;;
@@ -40,7 +40,7 @@ case $CASE in
         sed -i 's/VARVEL/0.5/g' 0/U
         cat system/fvSolution.orig > system/fvSolution
         sed -i 's/VAROUTERCORR/1/g' system/fvSolution
-        sed -i 's/VARUMAXITER/1000/g' system/fvSolution
+        sed -i 's/VARUMAXITER/100/g' system/fvSolution
         sed -i 's/VARHMAXITER/0/g' system/fvSolution
         sed -i 's/VARNOUTERCORR/1/g' system/fvSolution
         ;;
@@ -49,8 +49,8 @@ case $CASE in
         sed -i 's/VARVEL/0/g' 0/U
         cat system/fvSolution.orig > system/fvSolution
         sed -i 's/VAROUTERCORR/1/g' system/fvSolution
-        sed -i 's/VARUMAXITER/1000/g' system/fvSolution
-        sed -i 's/VARHMAXITER/1000/g' system/fvSolution
+        sed -i 's/VARUMAXITER/100/g' system/fvSolution
+        sed -i 's/VARHMAXITER/100/g' system/fvSolution
         sed -i 's/VARNOUTERCORR/1/g' system/fvSolution
         cat constant/neutronicsHeatSource > constant/fvModels
         sed -i 's/VARGAMMA/1e6/g' constant/fvModels
@@ -61,8 +61,8 @@ case $CASE in
         sed -i 's/VARVEL/0.5/g' 0/U
         cat system/fvSolution.orig > system/fvSolution
         sed -i 's/VAROUTERCORR/1/g' system/fvSolution
-        sed -i 's/VARUMAXITER/1000/g' system/fvSolution
-        sed -i 's/VARHMAXITER/1000/g' system/fvSolution
+        sed -i 's/VARUMAXITER/100/g' system/fvSolution
+        sed -i 's/VARHMAXITER/100/g' system/fvSolution
         sed -i 's/VARNOUTERCORR/1/g' system/fvSolution
         cat constant/neutronicsHeatSource > constant/fvModels
         sed -i 's/VARGAMMA/1e6/g' constant/fvModels

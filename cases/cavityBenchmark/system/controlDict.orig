@@ -100,6 +100,12 @@ functions
           flux3
           flux4
           flux5
+          secondFlux0
+          secondFlux1
+          secondFlux2
+          secondFlux3
+          secondFlux4
+          secondFlux5
           DNS0
           DNS5
         );

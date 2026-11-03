@@ -27,7 +27,7 @@ divSchemes
     div(phi,h)      bounded Gauss limitedLinear 0.2;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
 
-    "div\(tempPhi,.*\)" Gauss upwind;
+    "div\(tempPhi,.*\)" Gauss limitedLinear 1;
 }
 
 laplacianSchemes

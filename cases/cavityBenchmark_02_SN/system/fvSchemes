@@ -33,7 +33,7 @@ divSchemes
     div(U)          Gauss linear;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
 
-    "div\(tempPhi,.*\)" Gauss upwind;
+    "div\(tempPhi,.*\)" Gauss limitedLinear 1;
     "div\(phif,.*\)"     Gauss limitedLinear 1;
 }
 

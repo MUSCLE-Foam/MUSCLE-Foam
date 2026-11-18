@@ -25,6 +25,10 @@ Usage
       - \par -outputFile <Serpent output file>
         Serpent output file name
 
+      - \par -betaEff
+        Write the effective delayed neutron fractions and decay constants instead
+        of the physical values. Use for PKE solver.
+
     Example usage:
       - To copy cross-section data for the diffusion solver with 6 energy
         groups, run the following from the command-line in your case directory:
@@ -69,6 +73,13 @@ int main(int argc, char *argv[])
         "Serpent output file name"
     );
 
+    argList::addBoolOption
+    (
+        "betaEff",
+        "Write effective (adjoint-weighted) delayed neutron data instead of "
+        "physical values, e.g. for point kinetics"
+    );
+
     #include "setRootCase.H"
     #include "createTime.H"
 
@@ -83,6 +94,9 @@ int main(int argc, char *argv[])
 
     // Serpent output file
     fileName outputFile = args.optionRead<fileName>("outputFile");
+
+    // Use effective instead of physical delayed neutron data
+    const bool useBetaEff = args.optionFound("betaEff");
     IFstream serpentOutput(outputFile);
 
     // Dict file
@@ -186,8 +200,80 @@ int main(int argc, char *argv[])
     List<scalar> fiss(energyGroups*2, Zero);
     bool dnpRead = false;
     label DNPGroups = -1;
-    List<scalar> betaEff;
+    List<scalar> beta;
     List<scalar> lambda;
+
+    // Serpent keys for the delayed neutron data. The physical (analog) delayed
+    // neutron fractions are used by default, since the diffusion, SP3 and SN
+    // solvers resolve the delayed neutron spectrum (chiDel) and the spatial
+    // precursor distribution explicitly, so importance weighting is already
+    // part of the solution. Effective values are intended for point kinetics.
+    const word betaKey
+    (
+        useBetaEff ? "ADJ_NAUCHI_BETA_EFF" : "FWD_ANA_BETA_ZERO"
+    );
+    const word lambdaKey
+    (
+        useBetaEff ? "ADJ_NAUCHI_LAMBDA" : "FWD_ANA_LAMBDA"
+    );
+
+    Info<< "Reading delayed neutron data from " << betaKey << " and "
+        << lambdaKey << nl;
+
+    // Helper function to read delayed neutron data. Serpent writes the total
+    // value (with its uncertainty) first, followed by the group-wise values.
+    auto readDNPData = []
+    (
+        const string& line,
+        const word& key,
+        const label DNPGroups,
+        List<scalar>& values
+    )
+    {
+        if (DNPGroups <= 0)
+        {
+            FatalErrorInFunction
+                << "Found " << key << " before PRECURSOR_GROUPS was read"
+                << exit(FatalError);
+        }
+
+        std::size_t lb = line.rfind('[');
+        std::size_t rb = line.rfind(']');
+
+        if (lb == std::string::npos || rb == std::string::npos)
+        {
+            FatalErrorInFunction
+                << "Malformed " << key << " line:\n" << line
+                << exit(FatalError);
+        }
+
+        string contents = line.substr(lb + 1, rb - lb - 1);
+        std::stringstream ss(contents);
+        scalar val, unc;
+
+        // Skip the total value
+        if (!(ss >> val >> unc))
+        {
+            FatalErrorInFunction
+                << "Failed reading total " << key
+                << " from line:\n" << line
+                << exit(FatalError);
+        }
+
+        values.setSize(DNPGroups);
+
+        for (label i = 0; i < DNPGroups; i++)
+        {
+            if (!(ss >> val >> unc))
+            {
+                FatalErrorInFunction
+                    << "Failed reading " << key << " group " << i
+                    << " from line:\n" << line
+                    << exit(FatalError);
+            }
+            values[i] = val;
+        }
+    };
 
     // Loop through Serpent output file lines
     while (std::getline(serpentOutput.stdStream(), line))
@@ -471,69 +557,17 @@ int main(int argc, char *argv[])
                 }
             }
 
-            if (line.find("ADJ_NAUCHI_BETA_EFF") != std::string::npos)
+            if (line.find(betaKey) != std::string::npos)
             {
-                std::size_t lb = line.rfind('[');
-                std::size_t rb = line.rfind(']');
-
-                if (lb == std::string::npos || rb == std::string::npos)
-                {
-                    FatalErrorInFunction
-                        << "Malformed ADJ_NAUCHI_BETA_EFF line:\n" << line
-                        << exit(FatalError);
-                }
-
-                string contents = line.substr(lb + 1, rb - lb - 1);
-                std::stringstream ss(contents);
-                scalar val, unc;
-
-                betaEff.setSize(DNPGroups);
-
-                for (label i = 0; i < DNPGroups; i++)
-                {
-                    if (!(ss >> val >> unc))
-                    {
-                        FatalErrorInFunction
-                            << "Failed reading BETA_EFF group " << i
-                            << " from line:\n" << line
-                            << exit(FatalError);
-                    }
-                    betaEff[i] = val;
-                }
+                readDNPData(line, betaKey, DNPGroups, beta);
             }
 
-            if (line.find("ADJ_NAUCHI_LAMBDA") != std::string::npos)
+            if (line.find(lambdaKey) != std::string::npos)
             {
-                std::size_t lb = line.rfind('[');
-                std::size_t rb = line.rfind(']');
-
-                if (lb == std::string::npos || rb == std::string::npos)
-                {
-                    FatalErrorInFunction
-                        << "Malformed ADJ_NAUCHI_LAMBDA line:\n" << line
-                        << exit(FatalError);
-                }
-
-                string contents = line.substr(lb + 1, rb - lb - 1);
-                std::stringstream ss(contents);
-                scalar val, unc;
-
-                lambda.setSize(DNPGroups);
-
-                for (label i = 0; i < DNPGroups; i++)
-                {
-                    if (!(ss >> val >> unc))
-                    {
-                        FatalErrorInFunction
-                            << "Failed reading LAMBDA group " << i
-                            << " from line:\n" << line
-                            << exit(FatalError);
-                    }
-                    lambda[i] = val;
-                }
-
-                dnpRead = true;
+                readDNPData(line, lambdaKey, DNPGroups, lambda);
             }
+
+            dnpRead = beta.size() && lambda.size();
         }
     }
 
@@ -541,6 +575,14 @@ int main(int argc, char *argv[])
     file << "// ************************************************************************* //";
 
     Info << "setFieldsDict created from " << outputFile << endl;
+
+    if (!dnpRead)
+    {
+        FatalErrorInFunction
+            << "Could not find " << betaKey << " and " << lambdaKey
+            << " in " << outputFile
+            << exit(FatalError);
+    }
 
     // Delayed neutron data
     fileName delayedNeutronConstants = "constant/delayedNeutronConstants";
@@ -568,9 +610,9 @@ int main(int argc, char *argv[])
 
     dncFile << "\n";
 
-    forAll(betaEff, i)
+    forAll(beta, i)
     {
-        dncFile << "beta" << i << "       " << betaEff[i] << ";\n";
+        dncFile << "beta" << i << "       " << beta[i] << ";\n";
     }
 
     dncFile << "\n";

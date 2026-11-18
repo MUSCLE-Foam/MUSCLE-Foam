@@ -146,6 +146,7 @@ void Foam::DNPTransport::solve()
         precEqn.solve();
 
         prec_[p].correctBoundaryConditions();
+        prec_[p] = max(prec_[p], dimensionedScalar(prec_[p].dimensions(), 0));
     }
 
     updateSourceTerms();

@@ -107,6 +107,7 @@ void Foam::DHPTransport::solve()
         decEqn.solve();
 
         dec_[d].correctBoundaryConditions();
+        dec_[d] = max(dec_[d], dimensionedScalar(dec_[d].dimensions(), 0));
     }
 
     updateSourceTerms();

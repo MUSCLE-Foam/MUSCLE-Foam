@@ -1,0 +1,53 @@
+// ************************************************************************* //
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      createZonesDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+M1
+{
+    type        box;
+    zoneType    cell;
+    box         (0.24 0.24 0) (0.56 0.56 10);
+}
+
+M2
+{
+    type        union;
+
+    M2_1
+    {
+        type        box;
+        zoneType    cell;
+        box         (0.24 0 0) (0.56 0.24 10);
+    }
+
+    M2_2
+    {
+        type        box;
+        zoneType    cell;
+        box         (0 0.24 0) (0.24 0.56 10);
+    }
+}
+
+M3
+{
+    type        difference;
+
+    M3_all
+    {
+        type        box;
+        zoneType    cell;
+        box         (0 0 0) (0.80 0.80 10);
+    }
+
+    M1;
+    M2;
+}
+
+
+// ************************************************************************* //

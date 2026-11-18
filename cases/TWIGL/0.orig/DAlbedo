@@ -1,0 +1,20 @@
+// ************************************************************************** //
+FoamFile
+{
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      DAlbedo;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 0 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    #include "XS"
+}
+
+// ************************************************************************** //

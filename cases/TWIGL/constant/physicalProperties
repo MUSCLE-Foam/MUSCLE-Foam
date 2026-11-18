@@ -1,0 +1,44 @@
+// ************************************************************************* //
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      physicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+thermoType
+{
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+mixture
+{
+    specie
+    {
+        molWeight       28.9;
+    }
+    equationOfState
+    {
+        rho             1000;
+    }
+    thermodynamics
+    {
+        Cp              817.726;
+        hf              0;
+    }
+    transport
+    {
+        mu              1e-5;
+        Pr              2.72;
+    }
+}
+
+// ************************************************************************* //
